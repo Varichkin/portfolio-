@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Варичкин Иван - Product Manager</title>
+<meta name="description" content="Product Manager, B2B-маркетплейсы, монетизация и seller experience. Кейсы с цифрами: 30% net revenue платформы, supplier self-service, universal 1C-интеграции."/>
+
+<style>
+  :root {
+    --bg: #0b1220;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --subtle: #6b7280;
+    --accent: #60a5fa;
+    --accent-soft: rgba(96, 165, 250, 0.12);
+    --accent-border: rgba(96, 165, 250, 0.22);
+    --accent-text: #dbeafe;
+    --success: #6ee7b7;
+    --success-soft: rgba(52, 211, 153, 0.12);
+    --success-border: rgba(52, 211, 153, 0.22);
+    --success-text: #d1fae5;
+    --warn: #fcd34d;
+    --warn-soft: rgba(251, 191, 36, 0.10);
+    --warn-border: rgba(251, 191, 36, 0.22);
+    --warn-text: #fef3c7;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --radius: 18px;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Inter", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { width: 100%; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    line-height: 1.55;
+    background:
+      radial-gradient(1200px 600px at 30% 10%, rgba(96,165,250,.22), transparent 55%),
+      radial-gradient(1000px 600px at 80% 20%, rgba(52,211,153,.16), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+  @media (max-width: 640px) {
+    .container { padding: 24px 16px 60px; }
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 640px) {
+    header { padding: 22px; }
+  }
+
+  .name {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 640px) {
+    .name { font-size: 26px; }
+  }
+
+  .role {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+  @media (max-width: 640px) {
+    .role { font-size: 15px; }
+  }
+
+  .pitch {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 20px;
+    max-width: 760px;
+    line-height: 1.6;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    background: rgba(255,255,255,.04);
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: rgba(52, 211, 153, 0.14);
+    border-color: rgba(52, 211, 153, 0.25);
+    color: var(--success-text);
+  }
+  .btn-primary:hover {
+    background: rgba(52, 211, 153, 0.22);
+  }
+  .btn-secondary {
+    background: var(--accent-soft);
+    border-color: var(--accent-border);
+    color: var(--accent-text);
+  }
+  .btn-secondary:hover {
+    background: rgba(96, 165, 250, 0.2);
+  }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 720px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 380px) {
+    .kpi-row { grid-template-columns: 1fr; }
+  }
+
+  .kpi {
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 82px;
+  }
+  .kpi-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .kpi-lbl {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 40px; }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    color: #f3f4f6;
+  }
+
+  .section-hint {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .case {
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .case:hover { border-color: var(--border-strong); }
+  .case[open] { border-color: var(--accent-border); }
+
+  .case summary {
+    cursor: pointer;
+    padding: 20px 22px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .case summary::-webkit-details-marker { display: none; }
+
+  .case-title-wrap { flex: 1; min-width: 0; }
+  .case-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent-text);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    padding: 3px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .case-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    color: #f3f4f6;
+  }
+  @media (max-width: 640px) {
+    .case-title { font-size: 15px; }
+  }
+  .case-summary {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .case-chevron {
+    font-size: 16px;
+    color: var(--subtle);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .case[open] .case-chevron {
+    transform: rotate(180deg);
+    color: var(--accent);
+  }
+
+  .case-body {
+    padding: 0 22px 24px;
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    margin-top: 2px;
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 640px) {
+    .case-metrics { grid-template-columns: 1fr; }
+  }
+  .case-metric {
+    padding: 12px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .case-metric-num {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+  .case-metric-lbl {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
+
+  .case-block { margin-bottom: 18px; }
+  .case-block:last-child { margin-bottom: 0; }
+
+  .case-block-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .case-block p, .case-block li {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .case-block p { margin-bottom: 10px; }
+  .case-block p:last-child { margin-bottom: 0; }
+
+  .case-block ul {
+    list-style: none;
+    padding: 0;
+  }
+  .case-block ul li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+  }
+  .case-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  .scheme {
+    background: rgba(0,0,0,.15);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 12px 0;
+    overflow-x: auto;
+  }
+  .scheme svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-width: 400px;
+  }
+
+  .callout {
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--success-soft);
+    border: 1px solid var(--success-border);
+    color: var(--success-text);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 10px 0;
+  }
+  .callout-warn {
+    background: var(--warn-soft);
+    border-color: var(--warn-border);
+    color: var(--warn-text);
+  }
+  .callout strong { font-weight: 800; }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-text);
+    border: 1px solid var(--accent-border);
+    font-weight: 500;
+  }
+
+  .exp-card {
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 22px;
+  }
+
+  .exp-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .exp-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .exp-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #f3f4f6;
+  }
+  .exp-dates {
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .exp-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .contact-card {
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: 28px;
+    text-align: center;
+  }
+  .contact-card p {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--subtle);
+    text-align: center;
+  }
+  footer a { color: var(--muted); }
+
+  @media print {
+    body { background: white; color: black; }
+    .case { break-inside: avoid; }
+    .btn, footer { display: none; }
+    .case[open] { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1 class="name">Варичкин Иван</h1>
+    <p class="role">Product Manager / Product Owner. B2B-маркетплейсы, монетизация, seller experience</p>
+
+    <p class="pitch">
+      Развиваю продукты end-to-end: от customer discovery до монетизации. Сейчас Product Owner в PRODLY, B2B e-commerce платформе FMCG (100k+ ТТ, 80 регионов РФ и Казахстан). До перехода в продукт: 10+ лет руководящих ролей в коммерции (Билайн, ЭР-Телеком).
+    </p>
+
+    <div class="meta">
+      <span>📍 Самара. Гибрид в Москве или удалённо</span>
+      <a href="tel:+79277447978">+7 (927) 744-79-78</a>
+      <a href="mailto:jjeeyy77@mail.ru">jjeeyy77@mail.ru</a>
+      <a href="https://t.me/Ivan_var" target="_blank">Telegram: @Ivan_var</a>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://t.me/Ivan_var" target="_blank">💬 Написать в Telegram</a>
+      <a class="btn btn-secondary" href="./rezume_varichkin.pdf" download>📄 Скачать PDF-резюме</a>
+      <a class="btn" href="https://samara.hh.ru/resume/0f35054cff1041fe730039ed1f385076466f6e" target="_blank">↗ hh.ru резюме</a>
+    </div>
+  </header>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-num">~30%</div>
+      <div class="kpi-lbl">net revenue платформы от фичи, которую разработал с нуля</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num">1:4</div>
+      <div class="kpi-lbl">ROI клиентов от монетизационной механики</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num">мес → часы</div>
+      <div class="kpi-lbl">сокращение time-to-launch для enterprise-партнёров</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-num">20+</div>
+      <div class="kpi-lbl">глубинных интервью с enterprise-клиентами FMCG</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>3 ключевых кейса</h2>
+    <p class="section-hint">
+      Нажмите на карточку, чтобы развернуть кейс с деталями: проблема, решение, схема флоу, метрики, и что пошло не так.
+    </p>
+
+    <details class="case" open>
+      <summary>
+        <div class="case-title-wrap">
+          <div class="case-label">Кейс 1. Монетизация</div>
+          <div class="case-title">План закупок для ТТ. Новый источник выручки через JTBD-discovery</div>
+          <div class="case-summary">
+            Разработал монетизационную механику с нуля, от глубинных интервью с топ-производителями FMCG до масштабирования. Сегодня приносит ~30% net revenue платформы.
+          </div>
+        </div>
+        <div class="case-chevron">▼</div>
+      </summary>
+
+      <div class="case-body">
+
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">~30%</div>
+            <div class="case-metric-lbl">net revenue платформы</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">75%</div>
+            <div class="case-metric-lbl">adoption ТТ в механике</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">1:4</div>
+            <div class="case-metric-lbl">медианный ROI клиентов</div>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Проблема</div>
+          <p>У платформы был потолок по монетизации: комиссия с оборота даёт тонкую маржу. Нужен был независимый источник net revenue, масштабируемый вместе с клиентами.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Discovery через JTBD</div>
+          <p>Провёл 5 глубинных интервью с топ-производителями и дистрибьюторами (Mars, Mondelez, Heinz, Далимо, Проект Инвест). Цель не "что вы хотите от платформы", а какая боль блокирует рост в B2B e-com.</p>
+          <div class="callout">
+            <strong>Инсайт:</strong> во всех 5 интервью независимо прозвучала одна и та же боль: невозможность прогнозировать и управлять спросом со стороны торговых точек.
+          </div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Решение. Механика планов закупок</div>
+          <div class="scheme">
+            <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#60a5fa"/>
+                </marker>
+              </defs>
+              <rect x="20" y="90" width="160" height="80" rx="8" fill="rgba(96,165,250,0.12)" stroke="#60a5fa" stroke-width="1.5"/>
+              <text x="100" y="120" text-anchor="middle" fill="#e5e7eb" font-size="14" font-weight="600">Производитель</text>
+              <text x="100" y="140" text-anchor="middle" fill="#9ca3af" font-size="11">ставит план и бонус</text>
+              <text x="100" y="155" text-anchor="middle" fill="#9ca3af" font-size="11">на каждую ТТ</text>
+
+              <rect x="320" y="60" width="160" height="140" rx="8" fill="rgba(96,165,250,0.18)" stroke="#60a5fa" stroke-width="2"/>
+              <text x="400" y="95" text-anchor="middle" fill="#f3f4f6" font-size="14" font-weight="700">PRODLY</text>
+              <text x="400" y="118" text-anchor="middle" fill="#9ca3af" font-size="11">доставляет план</text>
+              <text x="400" y="132" text-anchor="middle" fill="#9ca3af" font-size="11">считает факт</text>
+              <text x="400" y="146" text-anchor="middle" fill="#9ca3af" font-size="11">берёт комиссию</text>
+              <text x="400" y="170" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="700">с выполненных планов</text>
+
+              <rect x="620" y="90" width="160" height="80" rx="8" fill="rgba(96,165,250,0.12)" stroke="#60a5fa" stroke-width="1.5"/>
+              <text x="700" y="120" text-anchor="middle" fill="#e5e7eb" font-size="14" font-weight="600">Торговая точка</text>
+              <text x="700" y="140" text-anchor="middle" fill="#9ca3af" font-size="11">видит план</text>
+              <text x="700" y="155" text-anchor="middle" fill="#9ca3af" font-size="11">докупает, получает бонус</text>
+
+              <line x1="185" y1="130" x2="315" y2="130" stroke="#60a5fa" stroke-width="2" marker-end="url(#arr1)"/>
+              <line x1="485" y1="130" x2="615" y2="130" stroke="#60a5fa" stroke-width="2" marker-end="url(#arr1)"/>
+
+              <text x="400" y="235" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="600">Монетизация: комиссия с факта выполнения. Нет успеха, нет платы</text>
+            </svg>
+          </div>
+          <p>Производитель в своём кабинете ставит индивидуальный план для каждой ТТ (в рублях или штуках) плюс вознаграждение за выполнение (кэшбек, подарок, скидка). ТТ видит план, выполняет, получает бонус. Платформа берёт комиссию только с фактического оборота по выполненным планам.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что пошло не так, и что я из этого вынес</div>
+          <div class="callout callout-warn">
+            <strong>Провал:</strong> сначала дали возможность ставить планы по блокам SKU ("минимум 3 из блока А плюс 5 из блока Б"). Логично, но adoption упал ниже 20%. Пользователи ТТ не справлялись со сложностью. <strong>Механика приостановлена.</strong>
+          </div>
+          <p><strong>Урок:</strong> мощность инструмента не равна его полезности, если пользователь не может удержать логику в голове. В следующих итерациях сначала валидируем сценарий на пользователе, потом даём продакшн. Недоразобрался с пользовательской стороной, так как был сфокусирован на плательщике.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что дальше</div>
+          <ul>
+            <li>Редизайн UI для роста adoption с 75% до 85% и выше</li>
+            <li>Дашборды "добить план" для ТТ. Визуальный прогресс до вознаграждения</li>
+            <li>Рекомендательная механика для производителя. Какой план оптимален для каждой ТТ на основе исторических закупок</li>
+          </ul>
+        </div>
+
+        <div class="tags">
+          <span class="tag">JTBD</span>
+          <span class="tag">Discovery</span>
+          <span class="tag">Монетизация</span>
+          <span class="tag">B2B Enterprise</span>
+          <span class="tag">Pricing модели</span>
+          <span class="tag">ROI-based commission</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <div class="case-title-wrap">
+          <div class="case-label">Кейс 2. Enterprise onboarding</div>
+          <div class="case-title">Универсальные 1С-модули. Снижение time-to-launch с недель до часов</div>
+          <div class="case-summary">
+            ~30% крупных клиентов застревали на интеграции по API. Через подряд сделал готовые модули для 1С УТ 11, УНФ, ERP. Десятки подключений, которые иначе бы ушли.
+          </div>
+        </div>
+        <div class="case-chevron">▼</div>
+      </summary>
+
+      <div class="case-body">
+
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">~30%</div>
+            <div class="case-metric-lbl">крупных клиентов раньше отваливались на интеграции</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">недели → часы</div>
+            <div class="case-metric-lbl">time-to-launch в лучшем сценарии</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">3 × 80%</div>
+            <div class="case-metric-lbl">три модуля закрывают 80% рынка крупных 1С</div>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Проблема</div>
+          <p>Enterprise-поставщики с тысячами SKU не могли использовать self-service ЛК. Ручное управление ассортиментом невозможно. Интеграция через API растягивалась на недели-месяцы или вовсе ломалась. ~30% крупных лидов терялись именно на этом этапе.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Решение. Сегментирование по типу 1С плюс Pareto-подход</div>
+          <div class="scheme">
+            <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#60a5fa"/>
+                </marker>
+              </defs>
+
+              <rect x="20" y="20" width="180" height="40" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)"/>
+              <text x="110" y="45" text-anchor="middle" fill="#e5e7eb" font-size="13">Клиент на 1С УТ 11</text>
+
+              <rect x="20" y="75" width="180" height="40" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)"/>
+              <text x="110" y="100" text-anchor="middle" fill="#e5e7eb" font-size="13">Клиент на 1С УНФ</text>
+
+              <rect x="20" y="130" width="180" height="40" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)"/>
+              <text x="110" y="155" text-anchor="middle" fill="#e5e7eb" font-size="13">Клиент на 1С ERP</text>
+
+              <rect x="290" y="20" width="160" height="40" rx="6" fill="rgba(96,165,250,0.12)" stroke="#60a5fa"/>
+              <text x="370" y="45" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">Модуль УТ 11</text>
+
+              <rect x="290" y="75" width="160" height="40" rx="6" fill="rgba(96,165,250,0.12)" stroke="#60a5fa"/>
+              <text x="370" y="100" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">Модуль УНФ</text>
+
+              <rect x="290" y="130" width="160" height="40" rx="6" fill="rgba(96,165,250,0.12)" stroke="#60a5fa"/>
+              <text x="370" y="155" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">Модуль ERP</text>
+
+              <rect x="560" y="60" width="220" height="80" rx="8" fill="rgba(96,165,250,0.18)" stroke="#60a5fa" stroke-width="2"/>
+              <text x="670" y="95" text-anchor="middle" fill="#f3f4f6" font-size="14" font-weight="700">PRODLY API</text>
+              <text x="670" y="115" text-anchor="middle" fill="#9ca3af" font-size="11">автоматическая синхронизация</text>
+              <text x="670" y="128" text-anchor="middle" fill="#9ca3af" font-size="11">ассортимента, цен, остатков</text>
+
+              <line x1="205" y1="40" x2="285" y2="40" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <line x1="205" y1="95" x2="285" y2="95" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <line x1="205" y1="150" x2="285" y2="150" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+              <line x1="455" y1="40" x2="555" y2="90" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <line x1="455" y1="95" x2="555" y2="100" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <line x1="455" y1="150" x2="555" y2="110" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr2)"/>
+            </svg>
+          </div>
+          <p>Измерил распределение 1С-систем среди крупных клиентов: 80% используют одну из трёх версий (УТ 11, УНФ, ERP). Через внешний подряд заказал разработку модулей под эти три. Классический Pareto-подход. Для остальных 20% индивидуальный подряд, если клиент достаточно крупный.</p>
+          <p><strong>Почему build через подряд, а не in-house:</strong> 1С-разработка это узкая специальность, держать в штате под эпизодические проекты неэффективно. Build-vs-buy выбор в пользу контракта.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что пошло не так</div>
+          <ul>
+            <li><strong>Несовместимость с patch-версиями 1С.</strong> Каждое обновление 1С ломало часть кейсов, приходилось дорабатывать. Сейчас перерабатываем архитектуру маппинга справочников.</li>
+            <li><strong>Документация под не тот профиль пользователя.</strong> Ожидали, что клиент позовёт 1С-специалиста. Часть пыталась ставить бизнес-пользователями и застревала. Переписываем документацию в user-friendly формат с визуальным мастером.</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Связь с Кейсом 3</div>
+          <div class="callout">
+            <strong>Сегментация решений под типы клиентов:</strong> 1С-модули для enterprise с тысячами SKU (автоматика), ЛК для средних поставщиков с сотнями SKU (self-service). Одна цель, два пути. Разные продукты под разные сегменты.
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Time-to-launch</span>
+          <span class="tag">Enterprise onboarding</span>
+          <span class="tag">Build vs Buy</span>
+          <span class="tag">API integration</span>
+          <span class="tag">Pareto decision</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="case">
+      <summary>
+        <div class="case-title-wrap">
+          <div class="case-label">Кейс 3. Self-service product</div>
+          <div class="case-title">Supplier Self-service ЛК. Продукт для устойчивого роста платформы</div>
+          <div class="case-summary">
+            Инициировал и веду ЛК для средних поставщиков. 60% подходящих клиентов активно используют. Сознательный MVP-для-сегмента вместо сырого MVP-для-всех.
+          </div>
+        </div>
+        <div class="case-chevron">▼</div>
+      </summary>
+
+      <div class="case-body">
+
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">60%</div>
+            <div class="case-metric-lbl">подходящих поставщиков активно используют ЛК</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">0 → 6</div>
+            <div class="case-metric-lbl">базовых сценариев self-service в продакшн</div>
+          </div>
+          <div class="case-metric">
+            <div class="case-metric-num">2 волны</div>
+            <div class="case-metric-lbl">монетизации на подходе</div>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Проблема</div>
+          <p>1С-модули закрыли боль enterprise-клиентов. Но вторая половина рынка, средние поставщики с сотнями SKU, требовали другого инструмента. Ручная работа через аккаунта создавала операционный потолок масштабирования, интеграция через API им избыточна.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Решение. Сознательный MVP-для-сегмента</div>
+          <p>Вместо "запустим сырой MVP на всех" выбрал обратный подход: полноценный experience для 60% поставщиков, которым подходит текущий функционал. Остальных 40% пока не пускаю в ЛК, они работают по старой схеме через аккаунтинг, пока не достроим функционал. Это сознательное решение: в B2B негативный первый опыт стоит слишком дорого.</p>
+          <div class="scheme">
+            <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="40" width="340" height="140" rx="10" fill="rgba(52,211,153,0.12)" stroke="#6ee7b7" stroke-width="2"/>
+              <text x="200" y="70" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">60%. Активно в ЛК</text>
+              <text x="200" y="95" text-anchor="middle" fill="#9ca3af" font-size="11">средние поставщики</text>
+              <text x="200" y="110" text-anchor="middle" fill="#9ca3af" font-size="11">сотни SKU</text>
+              <text x="200" y="135" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">регистрация · цены · остатки</text>
+              <text x="200" y="153" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">контент · акции · картинки</text>
+
+              <rect x="430" y="40" width="340" height="140" rx="10" fill="rgba(251,191,36,0.10)" stroke="#fcd34d" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="600" y="70" text-anchor="middle" fill="#fcd34d" font-size="14" font-weight="700">40%. Пока через аккаунта</text>
+              <text x="600" y="95" text-anchor="middle" fill="#9ca3af" font-size="11">нужен функционал,</text>
+              <text x="600" y="110" text-anchor="middle" fill="#9ca3af" font-size="11">которого пока нет в ЛК</text>
+              <text x="600" y="135" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">расширенные акции</text>
+              <text x="600" y="153" text-anchor="middle" fill="#e5e7eb" font-size="12" font-weight="600">разделение ролей · аналитика</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Что пошло не так</div>
+          <div class="callout callout-warn">
+            <strong>Ошибка в профиле пользователя:</strong> делали онбординг под технического специалиста, а реально с ЛК работает бизнес-пользователь (менеджер отдела продаж без IT-бэкграунда). Первые поставщики застревали на настройке API-ключей.
+          </div>
+          <p><strong>Что поменяли:</strong></p>
+          <ul>
+            <li>Зарефакторили онбординг под бизнес-пользователя. Визуальный wizard, тех-детали ушли с первого экрана</li>
+            <li>Ввели ролевую модель внутри ЛК: бизнес-пользователю не нужна API-документация, тех-спецу не нужна аналитика поведения</li>
+          </ul>
+          <p><strong>Главный урок:</strong> в B2B-продукте "клиент" не равно "пользователь". Компания не пользуется продуктом, пользуется конкретный сотрудник с конкретным контекстом.</p>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Монетизация на подходе</div>
+          <ul>
+            <li><strong>Self-service продвижение товаров.</strong> Поставщик сам покупает выделение в выдаче без участия аккаунта</li>
+            <li><strong>Аукционная модель.</strong> В популярных категориях поставщики конкурируют за топ-позиции, цена формируется динамически</li>
+          </ul>
+        </div>
+
+        <div class="case-block">
+          <div class="case-block-title">Почему не A/B</div>
+          <div class="callout">
+            В B2B-маркетплейсе с неравномерным распределением ассортимента и конкуренции по территориям классические A/B дают слишком высокий шум относительно продуктового эффекта. Вместо A/B использую cohort-анализ по времени, качественные интервью и локальные пилоты на отдельных территориях. A/B это правильный инструмент под правильный контекст, не самоцель.
+          </div>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Self-service</span>
+          <span class="tag">Supplier experience</span>
+          <span class="tag">RICE/ICE приоритизация</span>
+          <span class="tag">MVP-сегментирование</span>
+          <span class="tag">Роли в продукте</span>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <section>
+    <h2>Опыт работы</h2>
+    <div class="exp-card">
+      <div class="exp-item">
+        <div class="exp-row">
+          <div class="exp-title">Product Owner. PRODLY.ru</div>
+          <div class="exp-dates">июль 2023, н.в.</div>
+        </div>
+        <div class="exp-desc">B2B e-commerce платформа FMCG. 100k+ ТТ. 80 регионов РФ и Казахстан. Monetization, supplier/vendor кабинет, self-service, roadmap, P&L</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <div class="exp-title">Руководитель направления конвергентного бизнеса (B2C). Билайн</div>
+          <div class="exp-dates">сент. 2021, июнь 2023</div>
+        </div>
+        <div class="exp-desc">CAC -20% YoY при ARPU +5%. Churn -15%. MAU +4%. Тарифные предложения, пилотные проекты</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <div class="exp-title">Руководитель по развитию территории (B2C). ЭР-Телеком Холдинг</div>
+          <div class="exp-dates">авг. 2018, июнь 2021</div>
+        </div>
+        <div class="exp-desc">Пилот с ростом revenue +4% масштабирован на федеральный уровень. MAU +15% YoY</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <div class="exp-title">Руководитель направления удалённого обслуживания (B2B). Wowworks</div>
+          <div class="exp-dates">янв. 2017, апр. 2018</div>
+        </div>
+        <div class="exp-desc">Запуск коммерческой вертикали с нуля. 0 → 950 объектов ежедневного обслуживания. Команда 6 человек. Стейкхолдер разработки внутреннего ПО</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Связаться</h2>
+    <div class="contact-card">
+      <p>Открыт к предложениям Product Manager / Product Owner в B2B-маркетплейсах, e-commerce, финтехе для бизнеса. Гибрид в Москве или удалённая работа.</p>
+      <div class="cta-row" style="justify-content: center;">
+        <a class="btn btn-primary" href="https://t.me/Ivan_var" target="_blank">💬 Написать в Telegram</a>
+        <a class="btn btn-secondary" href="mailto:jjeeyy77@mail.ru">✉ Email</a>
+        <a class="btn" href="./rezume_varichkin.pdf" download>📄 PDF-резюме</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Последнее обновление: апрель 2026 · <a href="https://samara.hh.ru/resume/0f35054cff1041fe730039ed1f385076466f6e" target="_blank">резюме на hh.ru</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
